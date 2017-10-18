@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatrixEquilibriumPoint", "MatrixEquilibriumPoint\MatrixEquilibriumPoint.csproj", "{B44923D2-C913-455A-B195-0CE16A47D5BB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EquilibriumPoint.Library", "EquilibriumChecker.Library\EquilibriumPoint.Library.csproj", "{0AF359F4-81FC-4DD0-A014-77ADF846033E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EquilibriumPoint.Library.Tests", "EquilibriumCheckerTests.Library\EquilibriumPoint.Library.Tests.csproj", "{39663EE4-2AEF-4C7C-9251-77A2BD7ECAA1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{B44923D2-C913-455A-B195-0CE16A47D5BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B44923D2-C913-455A-B195-0CE16A47D5BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B44923D2-C913-455A-B195-0CE16A47D5BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AF359F4-81FC-4DD0-A014-77ADF846033E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AF359F4-81FC-4DD0-A014-77ADF846033E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AF359F4-81FC-4DD0-A014-77ADF846033E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AF359F4-81FC-4DD0-A014-77ADF846033E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39663EE4-2AEF-4C7C-9251-77A2BD7ECAA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39663EE4-2AEF-4C7C-9251-77A2BD7ECAA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39663EE4-2AEF-4C7C-9251-77A2BD7ECAA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39663EE4-2AEF-4C7C-9251-77A2BD7ECAA1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
