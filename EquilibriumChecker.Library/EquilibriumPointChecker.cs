@@ -13,70 +13,81 @@ namespace EquilibriumPoint.Library
 			if (input.Length == 0) return -1;
 
 			int equilibriumPointsCount = 0;
+			int equilibriumForColumnsCount = 0;
+			int equilibriumForRowsCount = 0;
 
-			for (int columns = 0; columns < input.GetLength(0); columns++)
+			equilibriumForColumnsCount = CountEquilibriumPointsForColumns(input);
+			equilibriumForRowsCount = CountEquilibriumPointsForRows(input);
+
+			equilibriumPointsCount = equilibriumForColumnsCount * equilibriumForRowsCount;
+
+			return equilibriumPointsCount;
+		}
+
+		public static int CountEquilibriumPointsForRows(int[,] input)
+		{
+			int equilibriumForRowsCount = 0;
+
+			for (int row = 0; row < input.GetLength(1); row++)
 			{
-				for (int rows = 0; rows < input.GetLength(1); rows++)
+				int sumOfElemInRowsAbove = 0;
+				int sumOfElemInRowsBeyond = 0;
+
+				for (int i = 0; i < row; i++) //above
 				{
-					int sumOfElemInRowsAbove = 0;
-					int sumOfElemInRowsBeyond = 0;
-					bool rowSumsMatch = false;
-
-					int sumOfElemInColumnsOnLeft = 0;
-					int sumOfElemInColumnsOnRight = 0;
-					bool colSumsMatch = false;
-
-					for (int i = 0; i < rows; i++) //above
+					for (int j = 0; j < input.GetLength(0); j++)
 					{
-						for (int j = 0; j < input.GetLength(0); j++)
-						{
-							sumOfElemInRowsAbove += input[j, i];
-						}
+						sumOfElemInRowsAbove += input[j, i];
 					}
+				}
 
-					for (int i = rows + 1; i < input.GetLength(1); i++)
+				for (int i = row + 1; i < input.GetLength(1); i++)
+				{
+					for (int j = 0; j < input.GetLength(0); j++)
 					{
-						for (int j = 0; j < input.GetLength(0); j++)
-						{
-							sumOfElemInRowsBeyond += input[j, i];
-						}
+						sumOfElemInRowsBeyond += input[j, i];
 					}
+				}
 
-					if (sumOfElemInRowsAbove == sumOfElemInRowsBeyond)
-					{
-						rowSumsMatch = true;
-					}
+				if (sumOfElemInRowsAbove == sumOfElemInRowsBeyond)
+				{
+					equilibriumForRowsCount++;
+				} 
+			}
+			return equilibriumForRowsCount;
+		}
 
-					for (int i = 0; i < columns; i++) //left
-					{
-						for (int j = 0; j < input.GetLength(1); j++)
-						{
-							sumOfElemInColumnsOnLeft += input[i, j];
-						}
-					}
+		public static int CountEquilibriumPointsForColumns(int[,] input)
+		{
+			int equilibriumForColumnsCount = 0;
+			for (int column = 0; column < input.GetLength(0); column++)
+			{
+				int sumOfElemInColumnsOnLeft = 0;
+				int sumOfElemInColumnsOnRight = 0;
 
-					for (int i = columns + 1; i < input.GetLength(0); i++)
+				for (int i = 0; i < column; i++) //left
+				{
+					for (int j = 0; j < input.GetLength(1); j++)
 					{
-						for (int j = 0; j < input.GetLength(1); j++)
-						{
-							sumOfElemInColumnsOnRight += input[i, j];
-						}
+						sumOfElemInColumnsOnLeft += input[i, j];
 					}
+				}
 
-					if (sumOfElemInColumnsOnLeft == sumOfElemInColumnsOnRight)
+				for (int i = column + 1; i < input.GetLength(0); i++)
+				{
+					for (int j = 0; j < input.GetLength(1); j++)
 					{
-						colSumsMatch = true;
+						sumOfElemInColumnsOnRight += input[i, j];
 					}
+				}
 
-					if (colSumsMatch && rowSumsMatch)
-					{
-						equilibriumPointsCount++;
-						Console.WriteLine("PEP: " + columns + " " + rows);
-					}
+				if (sumOfElemInColumnsOnLeft == sumOfElemInColumnsOnRight)
+				{
+					equilibriumForColumnsCount++;
 				}
 			}
 
-			return equilibriumPointsCount;
+			return equilibriumForColumnsCount;
 		}
 	}
 }

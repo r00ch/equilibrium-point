@@ -21,6 +21,20 @@ namespace EquilibriumPoint.Library.Tests
 			Assert.AreEqual(-1, output);
 		}
 		[Test]
+		public void EquilibriumPointChecker_WhenValidInput_ReturnsNumberOfColumnsWithPotentialEquilibriumPoints()
+		{
+			int[,] input = new int[5, 3] { { 2, 7, 5 }, { 3, 0, 1 }, { 2, 1, -7 }, { 0, 2, 1 }, { 1, 6, 8 } };
+			var output = EquilibriumPointChecker.CountEquilibriumPointsForColumns(input);
+			Assert.AreEqual(2, output);
+		}
+		[Test]
+		public void EquilibriumPointChecker_WhenValidInput_ReturnsNumberOfRowsWithPotentialEquilibriumPoints()
+		{
+			int[,] input = new int[5, 3] { { 2, 7, 5 }, { 3, 0, 1 }, { 2, 1, -7 }, { 0, 2, 1 }, { 1, 6, 8 } };
+			var output = EquilibriumPointChecker.CountEquilibriumPointsForRows(input);
+			Assert.AreEqual(1, output);
+		}
+		[Test]
 		public void EquilibriumPointChecker_WhenValidInput_ReturnsValidAnswer()
 		{
 			int[,] input = new int[5, 3] { { 2, 7, 5 }, { 3, 0, 1 }, { 2, 1, -7 }, { 0, 2, 1 }, { 1, 6, 8 } };
